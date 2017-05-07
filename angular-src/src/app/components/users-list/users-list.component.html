@@ -8,6 +8,8 @@
   <tr>
     <th >Nome</th>
     <th >Email</th>
+    <th >Username</th>
+    <th >Role</th>
     <th ></th>
     <th ></th>
   </tr>
@@ -17,9 +19,11 @@
     <tr *ngFor="let user of users">
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.role }}</td>
       <td>
         
-        
+         <a class="btn btn-danger btn-xs" [routerLink]="['/user-list-form', user._id]" >Cambia ruolo</a>
       </td>
       <td>
         

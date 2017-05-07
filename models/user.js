@@ -20,7 +20,8 @@ const UserSchema = mongoose.Schema({
     required: true
   },
   role: {
-    type: String
+    type: String, 
+    default: 'levelone'
 
   }
 });

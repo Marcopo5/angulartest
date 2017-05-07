@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.flashMessage.show('You are now logged in', {
           cssClass: 'alert-success',
           timeout: 5000});
-        if(data.user.role){ 
+        if(data.user.role == 'admin'){ 
         this.router.navigate(['user-list']);
       } 
       else{

@@ -20,6 +20,7 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 import {AuthGuard} from './guards/auth.guard';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { UserListFormComponent } from './components/user-list-form/user-list-form.component';
 
 
 const appRoutes: Routes =  [
@@ -30,7 +31,8 @@ const appRoutes: Routes =  [
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
  
 {path:'profile_mod/:id', component: UserFormComponent },
- {path:'user-list', component: UsersListComponent },
+ {path:'user-list', component: UsersListComponent, canActivate:[AuthGuard]},
+ {path:'user-list-form/:id', component: UserListFormComponent },
 ]
 
 @NgModule({
@@ -43,7 +45,8 @@ const appRoutes: Routes =  [
     DashboardComponent,
     ProfileComponent,
     UserFormComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserListFormComponent
   ],
   imports: [
     BrowserModule,

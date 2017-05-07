@@ -1,0 +1,95 @@
+<!--<div class="row">   
+   <form class="form-horizontal" (ngSubmit)="save()">
+          <fieldset>
+          <legend class="col-md-10 col-md-offset-2">
+           Utente
+          </legend>
+     
+
+      <div  class="form-group">
+        <label class="col-md-2  control-label" for="name"> Nome </label>
+        <div class="col-md-10">       
+          {{ user.name }}
+                  
+        </div>
+      </div>
+
+       <div  class="form-group">
+        <label class="col-md-2  control-label" for="email">Email</label>
+        <div class="col-md-10">   
+          {{ user.email }} 
+                        
+        </div>
+      </div>
+        <div  class="form-group">
+        <label class="col-md-2  control-label" for="role">Role</label>
+        <input type="text" class="col-md-10" id="ruolo">    
+         {{ user.role }} 
+      
+      </div>
+
+
+
+<div class="form-group">
+  <label class="col-md-2 control-label" for="roles">Ruolo</label>
+  <select [(ngModel)]="selectedValue" class="form-control" id="role" required>
+    <option *ngFor="let role of roles" [ngValue]="role">{{role}}</option>
+  </select>
+</div>
+       
+          
+
+
+       </fieldset>
+  
+
+    <div class="form-group">
+      <div class="col-md-10 col-md-offset-2">
+    <button type="submit" class="btn btn-primary"> Invia dati</button>
+    </div>
+    </div>
+
+  </form>
+
+</div>
+-->
+
+
+<div class="row">
+  <form   [formGroup]="form" class="form-horizontal" (ngSubmit)="save()">
+          
+        
+    
+<div  class="form-group">
+        <label class="col-md-2  control-label" for="name"> Nome </label>
+        <div class="col-md-10">       
+          {{ user.name }}
+                  
+        </div>
+      </div>
+       <div  class="form-group">
+        <label class="col-md-2  control-label" for="email">Email</label>
+        <div class="col-md-10">   
+          {{ user.email }} 
+                        
+        </div>
+      </div>
+
+  <div class="form-group">
+  <label class="col-md-2 control-label" for="roles">Ruolo</label>
+  <select [(ngModel)]="user.role" class="form-control" id="role" formControlName="role"  >
+
+   <option *ngFor="let role of roles" [ngValue]="role">{{role}}</option>
+   </select>
+</div>
+
+    <div class="form-group">
+      <div class="col-md-10 col-md-offset-2">
+    <button  type="submit" class="btn btn-primary"> Invia dati</button>
+    </div>
+    </div>
+
+  </form>
+
+</div>
+

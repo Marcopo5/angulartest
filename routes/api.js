@@ -77,20 +77,22 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
   console.log('questo e risultato '+req.user);
 });
 
-/*
-// user
-router.get('/user/:id', function (req, res, next) {
-  const id = req.params.id;
-  UserModel.findOne({_id:id},function(err,result){
-                  if(err){
-            res.send(err);
-          }
-          else{
-        res.json(result);
-      }
-             })
-     });
-*/
+
+// Singolo user
+router.get('/user/:id', (req, res, next) =>   {
+   var id = req.params.id;
+   console.log('questo e l id '+id);
+   
+    User.findOne({_id:id}, function(err, result) {
+        if (err) {
+           throw err;
+        } else {
+         res.json(result);
+        }
+    });
+});
+
+
 // get users
 router.get('/get', function(req, res, next) {
     User.find({}, function(err,  result) {

@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
+import { User } from '../shared/user';
 //import {tokenNotExpired} from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
   authToken: any;
-  user: any;
+  user: User = new User()
   isDev:boolean;
-
+ 
   constructor(private http:Http) {
 
   }
@@ -41,6 +42,7 @@ export class AuthService {
 
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
+    localStorage.setItem('role', user.role);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
@@ -52,15 +54,16 @@ export class AuthService {
     return this.http.put('http://localhost:3000/api/update/', JSON.stringify(user), {headers: headers})
       .map(res => res.json());
   }
-/*
+
+
 getUser(id){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-   return this.http.get('http://localhost:3000/api/user/'+id,{headers: headers})
+   return this.http.get('http://localhost:3000/api/user/' + id)
     //return this.http.get('api/profile',{headers: headers})
      .map(res => res.json());
   }
-*/
+
 getUsers() {
   let headers = new Headers();
     headers.append('Content-Type','application/json');
@@ -84,6 +87,16 @@ getUsers() {
   loggedIn(){
     if(this.authToken)
     return true;
+  }
+   loggedAdmin(){
+     const role = localStorage.getItem('role');
+    if(role == 'admin'){
+    return true;  
+  }
+  else{
+    return false; 
+  }
+    
   }
 
   // loggedIn(){
