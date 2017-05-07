@@ -1,0 +1,11 @@
+<div *ngIf="user">
+  <h2 class="page-header">{{user.name}}</h2>
+  <ul class="list-group">
+    <li class="list-group-item">Username: {{user.username}}</li>
+    <li class="list-group-item">Email: {{user.email}}</li>
+  </ul>
+ 
+</div>
+<div>
+<a class="btn btn-info btn-xs" [routerLink]="['/profile_mod', user._id]">Modifica {{user._id}}</a>
+</div>

@@ -1,0 +1,3 @@
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse{
+    text-align: right;
+}
