@@ -13,7 +13,7 @@ const port = 3000;
   mongoose.Promise = global.Promise;
 
 // *********** CONNESSIONE AL DATABASE *********************
-database = "mongodb://pongi58:pongi58@ds161640.mlab.com:61640/mytasklist_brad";
+database = "mongodb://localhost:27017/meanauth";
 
 
 //  1) Connect To Database
